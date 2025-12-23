@@ -1,17 +1,20 @@
-import { Route, Routes } from 'react-router';
 import './App.css';
-import Main from './routes/Main';
 import Background from './components/Background';
+import { Outlet } from 'react-router-dom';
 
 function App() {
   return (
     <div>
-      
-      <Routes>
-        <Route index element={<Main />}/>
-      </Routes>
-
-
+      <Background 
+        color={{
+          hover: "#ff0000",
+          idle: "#fff",
+          active: "#ff0000",
+          outline: "rgba(0, 0, 0, 0)",
+          hoverOutline: "rgba(0, 0, 0, 0)"
+        }}
+      />
+      <Outlet />
     </div>
   );
 }

@@ -1,0 +1,22 @@
+:root {
+  --c-main: #ff0000;
+}
+
+.square-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+
+@font-face {
+  font-family: helvinepixel;
+  src: url(../public/fonts/helvinepixel.otf);
+}
+
+@font-face {
+  font-family: sourcesanspro;
+  src: url(../public/fonts/ss3.ttf);
+}

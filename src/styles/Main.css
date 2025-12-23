@@ -1,0 +1,14 @@
+header {
+  font-size: 4vw;
+  padding: clamp(2px, 1vw, 4px) clamp(6px, 2vw, 10px);
+  background: var(--c-main);
+  color: #fff;
+}
+
+.font__hp {
+  font-family: helvinepixel;
+}
+
+.font__ss3 {
+  font-family: sourcesanspro;
+}
