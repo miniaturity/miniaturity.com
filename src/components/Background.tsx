@@ -1,6 +1,9 @@
 import { useEffect, useRef } from "react";
 
 interface BackgroundProps {
+  wave?: {
+
+  }
   color?: {
     hover: string;
     idle: string;
@@ -8,6 +11,7 @@ interface BackgroundProps {
     outline: string;
     hoverOutline: string;
   };
+  hoverField?: number; 
   squareSize?: number;
   fadeDuration?: number;
   hoverScale?: number;
@@ -33,6 +37,7 @@ const Background: React.FC<BackgroundProps> = ({
     outline: "rgba(181, 181, 181, 0)",
     hoverOutline: "#f5675d"
   },
+  hoverField = 1,
   squareSize = 40,
   fadeDuration = 500,
   hoverScale = 1.25,
@@ -46,6 +51,7 @@ const Background: React.FC<BackgroundProps> = ({
   const animationFrameRef = useRef<number | null>(null);
   const lastFrameTime = useRef<number>(Date.now());
   const mouseDown = useRef<boolean>(false);
+  const lastMouseDown = useRef<number>(Date.now());
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -146,6 +152,12 @@ const Background: React.FC<BackgroundProps> = ({
       const mX = e.clientX - rect.left;
       const mY = e.clientY - rect.top;
 
+      if (mX < 0 || mX > canvas.width || mY < 0 || mY > canvas.height) {
+        hoveredSquare.current = null;
+        drawSquares();
+        return;
+      }
+
       const hoveredSquareX = Math.floor(mX / squareSize);
       const hoveredSquareY = Math.floor(mY / squareSize);
       
@@ -154,27 +166,41 @@ const Background: React.FC<BackgroundProps> = ({
         hoveredSquare.current.y !== hoveredSquareY
       ) {
         hoveredSquare.current = { x: hoveredSquareX, y: hoveredSquareY };
-        const key = `${hoveredSquareX},${hoveredSquareY}`;
-        activeSquares.current.set(key, { 
-          x: hoveredSquareX, 
-          y: hoveredSquareY, 
-          opacity: 1,
-          scale: hoverScale
-        });
+        
+        const radiusSquared = hoverField * hoverField;
+        
+        for (let dy = -hoverField; dy <= hoverField; dy++) {
+          for (let dx = -hoverField; dx <= hoverField; dx++) {
+            if (dx * dx + dy * dy <= radiusSquared) {
+              const key = `${hoveredSquareX + dx},${hoveredSquareY + dy}`;
+              activeSquares.current.set(key, { 
+                x: hoveredSquareX + dx, 
+                y: hoveredSquareY + dy, 
+                opacity: 1,
+                scale: hoverScale
+              });
+            }
+          }
+        }
+        
         drawSquares();
       }
     };
 
-    const handleMouseLeave = () => {
-      hoveredSquare.current = null;
-      drawSquares();
-    };
+    const handleMouseDown = (e: MouseEvent) => {
+      if (!hoveredSquare.current || Date.now() - lastMouseDown.current <= 300) return;
 
-    const handleMouseDown = () => {
-      if (!hoveredSquare.current) return;
-      
+      const rect = canvas.getBoundingClientRect();
+      const mX = e.clientX - rect.left;
+      const mY = e.clientY - rect.top;
+
+      if (mX < 0 || mX > canvas.width || mY < 0 || mY > canvas.height) {
+        return;
+      }
+
+      lastMouseDown.current = Date.now();
       const origin = { ...hoveredSquare.current };
-      const maxRadius = Math.ceil(Math.max(canvas.width, canvas.height) / squareSize);
+      const maxRadius = Math.min(20, Math.ceil(Math.max(canvas.width, canvas.height) / squareSize));
       let currentRadius = 0;
       let lastPulseTime = Date.now();
 
@@ -227,11 +253,11 @@ const Background: React.FC<BackgroundProps> = ({
 
     const handleMouseUp = () => {
       mouseDown.current = false;
+      drawSquares();
     }
 
     window.addEventListener('resize', resizeCanvas);
     window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('mouseleave', handleMouseLeave);
     window.addEventListener('mousedown', handleMouseDown);
     window.addEventListener('mouseup', handleMouseUp);
     
@@ -240,15 +266,15 @@ const Background: React.FC<BackgroundProps> = ({
 
     return () => {
       window.removeEventListener('resize', resizeCanvas);
-      canvas.removeEventListener('mousemove', handleMouseMove);
-      canvas.removeEventListener('mouseleave', handleMouseLeave);
-      canvas.removeEventListener('mousedown', handleMouseDown);
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mousedown', handleMouseDown);
+      window.removeEventListener('mouseup', handleMouseUp);
 
       if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current);
       }
     };
-  }, [color, squareSize, fadeDuration, hoverScale, pulseFadeDuration, waveSpeed]);
+  }, [color, squareSize, fadeDuration, hoverScale, pulseFadeDuration, waveSpeed, hoverField, defaultOpacity]);
 
   return (
     <canvas ref={canvasRef} className="square-canvas"></canvas>

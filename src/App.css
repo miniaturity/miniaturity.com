@@ -1,5 +1,12 @@
 :root {
   --c-main: #ff0000;
+  --c-secondary: rgb(0, 0, 255);
+  --c-bg: #fff;
+
+  &::selection {
+    background-color: var(--c-secondary);
+    color: var(--c-bg);
+  }
 }
 
 .square-canvas {
@@ -12,11 +19,6 @@
 }
 
 @font-face {
-  font-family: helvinepixel;
-  src: url(../public/fonts/helvinepixel.otf);
-}
-
-@font-face {
-  font-family: sourcesanspro;
-  src: url(../public/fonts/ss3.ttf);
+  font-family: vercetti;
+  src: url(../public/fonts/Vercetti-Regular.woff2);
 }
