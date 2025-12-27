@@ -23,10 +23,10 @@ const RotatingCube: React.FC<RotatingCubeProps> = ({ size, speed, opacity = 1 })
   return (
     <Box ref={cubeRef} args={size}>
       <meshBasicMaterial color="red" 
-      wireframe 
-      wireframeLinecap='round' 
-      opacity={opacity}
-      transparent={opacity < 1}
+        wireframe 
+        wireframeLinecap='round' 
+        opacity={opacity}
+        transparent={opacity < 1}
       />
     </Box>
   );

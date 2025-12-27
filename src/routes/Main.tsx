@@ -90,7 +90,6 @@ const UpperCard: React.FC = () => {
           <div className="um_top">
             <div className="umt_left">
               <Link to="/projects">projects&nbsp;&nbsp;{'→'}</Link>
-              <Link to="/about">about&nbsp;&nbsp;{'→'}</Link>
             </div>
             <div className="umt_right">
               <div className="umtr_label">
