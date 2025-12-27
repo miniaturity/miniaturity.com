@@ -44,11 +44,13 @@
   aspect-ratio: 3 / 1;
   display: flex;
   flex-direction: column;
-  width: clamp(400px, 100%, 550px);
+  width: clamp(350px, 96%, 550px);
   float: right;
   margin: var(--margin);
 
   z-index: 2 !important;
+  font-size: clamp(0.4rem, 2.5vw, 1rem);
+
 }
 
 .project_card header {
@@ -60,8 +62,7 @@
   color: var(--c-bg);
   background-color: var(--c-main);
   font-weight: bold;
-  justify-content: space-between;
-}
+  justify-content: space-between;}
 
 .pc_main {
   display: flex;
