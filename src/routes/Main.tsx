@@ -1,30 +1,14 @@
 import { Link } from 'react-router-dom';
 import '../styles/Main.css';
-import Background from '../components/Background';
 
 const Main: React.FC = () => {
 
 
   return (
-    <>
-      <Background 
-        color={{
-          hover: "#ff0000",
-          idle: "#ffeded",
-          active: "#ff0000",
-          outline: "rgba(255, 159, 159, 0.2)",
-          hoverOutline: "rgba(255, 0, 0, 1)"
-        }}
-        hoverScale={1.05}
-        hoverField={0}
-        squareSize={30}
-      />
-    
     <div className="main">
       <UpperCard />
       <CenterCard />
     </div>
-    </>
   )
 }
 
@@ -107,7 +91,6 @@ const UpperCard: React.FC = () => {
             <div className="umt_left">
               <Link to="/projects">projects&nbsp;&nbsp;{'→'}</Link>
               <Link to="/about">about&nbsp;&nbsp;{'→'}</Link>
-              <Link to="/links">links&nbsp;&nbsp;{'→'}</Link>
             </div>
             <div className="umt_right">
               <div className="umtr_label">

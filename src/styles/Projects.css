@@ -1,0 +1,133 @@
+.projects {
+  display: flex;
+  flex-direction: row;
+  width: 100vw; height: 100vh;
+}
+
+.left {
+  width: 60%; height: 100%;
+  & canvas { cursor: pointer; }
+}
+
+.right {
+  width: 40%; height: 100%;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    background-color: var(--c-bg);
+    width: 4px;
+   
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--c-main);
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .left {
+    display: none;
+  }
+  .right {
+    width: 100%; height: 100%;
+  }
+}
+
+
+/* #region project card */
+
+.project_card {
+  --margin: clamp(3px, 2vw, 8px);
+  --border: 2px solid var(--c-main);
+
+  font-family: vercetti;
+
+  aspect-ratio: 3 / 1;
+  display: flex;
+  flex-direction: column;
+  width: clamp(300px, 100%, 550px);
+  float: right;
+  margin: var(--margin);
+}
+
+.project_card header {
+  display: flex;
+  flex-direction: row;
+  width: calc(100% - calc(var(--margin) * 2)); height: 7%;
+  padding: var(--margin);
+  border: var(--border);
+  color: var(--c-bg);
+  background-color: var(--c-main);
+  font-weight: bold;
+  justify-content: space-between;
+}
+
+.pc_main {
+  display: flex;
+  flex-direction: row;
+  width: 100%; height: 93%;
+  border: var(--border);
+  color: var(--c-main);
+  background: var(--c-bg);
+}
+
+.pcm_left {
+  display: flex;
+  flex-direction: column;
+  width: 70%; height: 100%;
+  border-right: var(--border);
+}
+
+.pcml_year {
+  display: flex;
+  flex-direction: row;
+  width: 100%; height: 20%;
+  border-bottom: var(--border);
+  font-weight: bold;
+}
+
+.pcmly_a {
+  height: calc(100% - calc(var(--margin) * 2));
+  width: 30%;
+  padding: var(--margin);
+  border-right: var(--border);
+}
+
+.pcmly_b {
+  height: calc(100% - calc(var(--margin) * 2));
+  padding: var(--margin);
+  flex-grow: 1;
+  text-align: right;
+}
+.pcml_desc {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - calc(var(--margin) * 2)); height: 90%;
+  padding: var(--margin);
+  text-align: justify; text-align-last: justify;
+  overflow-y: auto;
+}
+
+.pcm_right {
+  display: flex;
+  flex-direction: column;
+  width: calc(30% - calc(var(--margin) * 2)); height: calc(100% - calc(var(--margin) * 2));
+  padding: var(--margin);
+  justify-content: space-between;
+}
+
+a {
+  color: var(--c-main);
+  text-align: justify; text-align-last: justify;
+  text-decoration: none;
+  padding: var(--margin);
+  width: calc(100% - calc(var(--margin) * 2));
+
+  &:hover {
+    color: var(--c-bg);
+    background-color: var(--c-main);
+  }
+}
+
+
+/* #endregion project card */

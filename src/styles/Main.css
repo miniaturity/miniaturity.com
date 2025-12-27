@@ -33,7 +33,7 @@ main {
   --border: 2px solid var(--c-main);
 }
 
-header {
+main header {
   display: flex;
   flex-direction: column;
   width: 70%;
