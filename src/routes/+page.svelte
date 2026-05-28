@@ -269,7 +269,7 @@
         & span {
             font-size: 20rem;
             white-space: nowrap;
-            padding-right: 2rem;
+            padding-right: 6rem;
         }
     }
 
