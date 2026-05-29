@@ -41,4 +41,9 @@
 		src: url("$lib/assets/fonts/HelveticaNeueThin.otf");
 		font-weight: 100;
 	}
+
+	@font-face {
+		font-family: "Dot";
+		src: url("$lib/assets/fonts/DOTMATRI.TTF");
+	}
 </style>
