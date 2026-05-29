@@ -11,6 +11,7 @@
     let totalScrobbles = $state<string | null>(null);
     let songImage = $state<string | null>(null);
     let date = $state<string | null>(null);
+    let isSingle = $derived<boolean>(songAlbum === "[Single]")
 
     let displayName = $state<string | null>(null);
     let marqueeOffset = $state(0);
@@ -97,7 +98,11 @@
 
         <div id="si-desc">
             <span id="si-artist">by: {songArtist || "..."}</span>
-            <span id="si-album">on: {songAlbum || "..."}</span>
+            {#if !isSingle}
+                <span id="si-album">on: {songAlbum || "..."}</span>
+            {:else}
+                <span id="si-album">single</span>
+            {/if}
             <span id="si-date">at: {date || "..."}</span>
             <span id="si-scrobbles">{totalScrobbles || "..."} scrobbles</span>
         </div>

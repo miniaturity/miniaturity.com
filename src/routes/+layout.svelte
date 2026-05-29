@@ -46,4 +46,9 @@
 		font-family: "Dot";
 		src: url("$lib/assets/fonts/DOTMATRI.TTF");
 	}
+
+	@font-face {
+		font-family: "PlanetKosmos";
+		src: url("$lib/assets/fonts/plank.ttf");
+	}
 </style>

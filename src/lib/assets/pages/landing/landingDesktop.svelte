@@ -203,6 +203,7 @@
             padding: 0 6px;
 
             transition: all var(--tt) ease-in-out; 
+            filter: drop-shadow(1px 1px 2px #000);
         }
 
         
@@ -253,6 +254,7 @@
             padding: 0 6px;
 
             transition: all var(--tt) ease-in-out;
+            filter: drop-shadow(1px 1px 2px #000);
         }
     }
 

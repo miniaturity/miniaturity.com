@@ -13,15 +13,12 @@
             </footer>
         </div>
 
-        <div class="buttons">
-            <a id="projects" href="/projects">
-                <div id="p-content">projects</div>
-            </a>
-
-            <a id="contact" href="/about">
-                <div id="c-content">about/contact</div>
-            </a>
-        </div>
+        <main>
+            <span class="t">view full site on desktop!</span>
+            <span>@miniaturity on discord</span>
+            <span>@miniaturity_ on instagram</span>
+            <span>gmail.com@miniaturityyy</span>
+        </main>
 
         <div class="deco-text">
             <div id="dc-content">
@@ -94,104 +91,24 @@
         text-align-last: justify;
         width: 170px;
     }
-
-    .buttons {
+    
+    main {
         position: absolute;
-        top: 0; left: 0;
+        left: 0; top: 0;
         width: 100%; height: 100%;
-
         display: flex;
         flex-direction: column;
-        justify-content: flex-end;
         align-items: center;
-        pointer-events: none;
-
-        & a {
-            pointer-events: all;
-        }
-    }
-
-    .buttons #projects, .buttons #contact {
-        position: relative;        
-        border: none;
-        font-family: "TE-20";
+        justify-content: center;
         color: #fff;
-        display: flex;
-        align-items: end;
-        cursor: pointer;
-        font-size: var(--button-fs);
-        padding: 0;
-        
-    }
 
-    .buttons #projects {
-        background-image: url("$lib/assets/images/garden.jpg");
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: 0 50%;
-        box-sizing: border-box;
-        width: 105%;
-        height: 100px; 
-        z-index: 1;
-        
-        
-
-        &::after {
-            content: '';
-            position: absolute;
-            left: 0; top: 0;
-            width: 100%; height: 100%;
-            background-color: #fff;
-            opacity: 0.2;
-            transition: opacity 0.2s ease-in-out;
-            box-sizing: border-box;
+        & span {
+            filter: drop-shadow(1px 1px 3px #000);
         }
 
-        & #p-content {
-            box-sizing: border-box;
-            width: calc(100% - 8px); height: calc(100% - 8px);
-            margin: 4px;
-            border: 1px solid #fff;
-            display: flex;
-            position: absolute;
-            top: 0; left: 0;
-            padding: 0 6px;
-
-            transition: all var(--tt) ease-in-out; 
-        }
-    }
-
-    .buttons #contact {
-        background-image: url("$lib/assets/images/subway.jpg");
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: 0 50%;
-        
-        width: 105%; 
-        height: 100px; 
-        z-index: 2;
-     
-         &::after {
-            content: '';
-            position: absolute;
-            left: 0; top: 0;
-            width: 100%; height: 100%;
-            background-color: #fff;
-            opacity: 0.2;
-            transition: opacity 0.2s ease-in-out;
-        }
-
-        & #c-content {
-            box-sizing: border-box;
-            width: calc(100% - 8px); height: calc(100% - 8px);
-            margin: 4px;
-            border: 1px solid #fff;
-            display: flex;
-            position: absolute;
-            top: 0; left: 0;
-            padding: 0 6px;
-
-            transition: all var(--tt) ease-in-out;
+        & .t {
+            font-weight: bold;
+            font-size: 1.2rem;
         }
     }
 
@@ -230,22 +147,6 @@
     @keyframes scroll-ltr {
         from { transform: translateX(-50%); }
         to   { transform: translateX(0%);   }
-    }
-
-    
-
-    @media screen and (max-width: 480px) {
-        .text header {
-            font-size: 2rem;
-        }
-
-        .card {
-            --button-fs: 0.9rem;
-        }
-
-        #dc-content {
-            font-size: 14rem;
-        }
     }
 
 </style>
