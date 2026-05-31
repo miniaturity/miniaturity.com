@@ -89,7 +89,8 @@
         margin: 24px;
         text-align: justify;
         text-align-last: justify;
-        width: 170px;
+        width: 100px;
+        font-size: 0.6rem;
     }
     
     main {

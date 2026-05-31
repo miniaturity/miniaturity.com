@@ -51,4 +51,36 @@
 		font-family: "PlanetKosmos";
 		src: url("$lib/assets/fonts/plank.ttf");
 	}
+
+	@font-face {
+		src: url("$lib/assets/fonts/TerminusTTF-Bold.ttf") format("truetype");
+		font-family: terminus;
+		font-weight: normal;
+	}
+
+	@font-face {
+		src: url("$lib/assets/fonts/TerminusTTF-Bold.ttf") format("truetype");
+		font-family: terminus;
+		font-weight: normal;
+	}
+
+	@font-face {
+		src: url("$lib/assets/fonts/SegoeUIVF.ttf") format("truetype");
+		font-family: s;
+	}
+
+	@font-face {
+		src: url("$lib/assets/fonts/Icons.ttf") format("truetype");
+		font-family: icons;
+	}
+
+	@font-face {
+		src: url("$lib/assets/fonts/Volter.ttf") format("truetype");
+		font-family: Volter;
+	}
+
+	@font-face {
+		src: url("$lib/assets/fonts/BPdotsSquareBold.otf");
+		font-family: "Square";
+	}
 </style>

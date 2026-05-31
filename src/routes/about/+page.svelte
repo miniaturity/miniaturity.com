@@ -1,7 +1,6 @@
 <script lang="ts">
     import { goto } from "$app/navigation";
     import AboutDesktop from "$lib/assets/pages/about/aboutDesktop.svelte";
-    import { onMount } from "svelte";
 
     let innerWidth = $state(0);
     let isMobile = $derived(innerWidth <= 768);

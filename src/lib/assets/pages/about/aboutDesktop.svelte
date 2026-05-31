@@ -47,7 +47,7 @@
             <strong>hello - i am miniaturity.</strong>
 
             <br /><br />
-            i am a game dev and a front-end dev! i love programming the more technical parts of games, like procedural level generation algorithms, and i love designing unique websites!
+            i am a game/front-end developer!! i loove the programming aspects of game development, and i love to design unique websites!
             
             for games, i use:
             godot, unity
@@ -55,7 +55,7 @@
             for websites, i use:
             svelte, react, scss
 
-            i am a proud and active member of hack club!! go join them if ur a teenager :)!
+            i am an active member of hack club!! go join them if ur a teenager :)!
         </div>
     </div>
 
@@ -183,7 +183,6 @@
         background-size: cover;
         padding: 16px;
         box-sizing: border-box;
-        transform: rotateZ(2deg);
         filter: drop-shadow(1px 1px 6px #000);
 
         & div {
