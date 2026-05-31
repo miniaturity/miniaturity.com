@@ -6,6 +6,18 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
+
+    <title>miniaturity</title>
+    <meta name="description" content="my portfolio!!" />
+
+    <meta property="og:title" content="miniaturity.com" />
+    <meta property="og:description" content="@miniaturity" />
+    <meta property="og:url" content="https://miniaturity.com" />
+    <meta property="og:image" content="https://miniaturity.com/miniaturity.png" />
+    <meta property="og:type" content="website" />
+
+    <meta name="theme-color" content="#EAE4C3" /> 
+    <meta name="twitter:card" content="summary_large_image" /> 
 </svelte:head>
 
 {@render children()}
